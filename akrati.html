@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ your special day off ✨</title>
+  <!-- one file, all magic -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fad0e6 0%, #f8d5e9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+      padding: 1.5rem;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    /* elegant card – her special space */
+    .special-card {
+      max-width: 720px;
+      width: 100%;
+      background: rgba(255, 248, 250, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 60px 20px 60px 20px;
+      box-shadow: 0 25px 50px -10px rgba(180, 70, 120, 0.3),
+                  0 0 0 1px rgba(255, 215, 225, 0.5) inset;
+      padding: 2.8rem 2.2rem;
+      text-align: center;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* playful sparkle decoration */
+    .special-card::before {
+      content: "✨💖✨";
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.4rem;
+      letter-spacing: 10px;
+      filter: drop-shadow(0 4px 8px rgba(255, 100, 150, 0.3));
+      background: rgba(255, 240, 245, 0.5);
+      padding: 0 20px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    }
+
+    /* main message — importance & love */
+    .greeting {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #6b2e4a;
+      margin-top: 0.6rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      text-shadow: 0 4px 12px rgba(200, 80, 130, 0.15);
+      word-break: break-word;
+    }
+
+    .greeting span {
+      display: inline-block;
+      background: linear-gradient(135deg, #b3426e, #d45a7a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      padding: 0 4px;
+    }
+
+    .sub-greeting {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #8f4b6b;
+      background: rgba(255, 225, 235, 0.6);
+      display: inline-block;
+      padding: 0.3rem 1.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* big OFF reminder – today is HER day */
+    .off-reminder {
+      background: rgba(255, 215, 225, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 100px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0 2rem 0;
+      border: 2px dashed #d47b9e;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(190, 80, 120, 0.15);
+    }
+
+    .off-reminder h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #892f5a;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .off-reminder h2 .day-off-badge {
+      background: #b34168;
+      color: #fff4f7;
+      padding: 0.25rem 1.2rem;
+      border-radius: 60px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(160, 50, 80, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .off-reminder .sub-off {
+      font-size: 1.2rem;
+      color: #5f3a4b;
+      background: rgba(255, 240, 245, 0.7);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* personalised importance message */
+    .importance-message {
+      background: rgba(255, 235, 240, 0.6);
+      backdrop-filter: blur(6px);
+      padding: 1.8rem 1.5rem;
+      border-radius: 40px 8px 40px 8px;
+      margin: 2rem 0 1.8rem 0;
+      border: 1px solid rgba(255, 200, 215, 0.7);
+      box-shadow: 0 6px 18px rgba(200, 80, 120, 0.08);
+    }
+
+    .importance-message p {
+      font-size: 1.3rem;
+      line-height: 1.7;
+      color: #451f31;
+      font-weight: 450;
+    }
+
+    .importance-message .highlight {
+      background: linear-gradient(120deg, #fccfdf 0%, #fccfdf 40%, transparent 80%);
+      padding: 0 8px;
+      font-weight: 600;
+      color: #6b1f3f;
+      border-radius: 30px;
+    }
+
+    .importance-message .emoji-big {
+      font-size: 2.2rem;
+      display: inline-block;
+      margin: 0 6px;
+    }
+
+    /* special interactive button – just for joy */
+    .joy-button {
+      background: #ffe2ed;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 80px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #622a45;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 0 #b36b83, 0 8px 18px rgba(150, 50, 80, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      background: rgba(255, 225, 235, 0.8);
+      margin-top: 0.5rem;
+      letter-spacing: 0.8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .joy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #b36b83, 0 12px 28px rgba(180, 60, 100, 0.25);
+      background: #ffdceb;
+    }
+
+    .joy-button:active {
+      transform: translateY(5px);
+      box-shadow: 0 2px 0 #b36b83;
+    }
+
+    .joy-button i {
+      font-style: normal;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    /* extra personalisation – floating love */
+    .floating-note {
+      margin-top: 2.2rem;
+      font-size: 1rem;
+      color: #78445e;
+      opacity: 0.9;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      border-top: 1px solid rgba(200, 120, 150, 0.2);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    .floating-note span {
+      background: rgba(255, 200, 215, 0.3);
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      font-weight: 500;
+    }
+
+    .floating-note .heartbeat {
+      display: inline-block;
+      animation: pulse 1.4s infinite;
+      font-size: 1.2rem;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    /* responsive */
+    @media (max-width: 500px) {
+      .special-card {
+        padding: 2rem 1.2rem;
+      }
+      .greeting {
+        font-size: 2.2rem;
+      }
+      .off-reminder h2 {
+        font-size: 1.8rem;
+        gap: 8px;
+      }
+      .off-reminder h2 .day-off-badge {
+        font-size: 1.2rem;
+        padding: 0.1rem 1rem;
+      }
+      .importance-message p {
+        font-size: 1.1rem;
+      }
+      .joy-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    /* extra sparkle (pseudo elements) */
+    .sparkle-emoji {
+      font-size: 1.8rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="special-card" id="specialCard">
+    <!-- greeting with her name (you can edit the name below!) -->
+    <div class="greeting">
+      hey <span id="friendName">akrati</span> ✨
+    </div>
+    <div class="sub-greeting">
+      💫 you are so important 💫
+    </div>
+
+    <!-- OFF reminder — today is her day -->
+    <div class="off-reminder">
+      <h2>
+        <span>📅</span>
+        <span class="day-off-badge">OFF</span>
+        <span>🌷</span>
+      </h2>
+      <div class="sub-off">
+        ⏰ today is YOUR day — rest & shine
+      </div>
+    </div>
+
+    <!-- importance message – unique & personal -->
+    <div class="importance-message">
+      <p>
+        <span class="emoji-big">🌸</span>
+        just a little reminder that the world is 
+        <span class="highlight">brighter</span> because you're in it.
+        <br>
+        <span style="font-size: 1.6rem; display: inline-block; margin: 8px 0;">💖</span>
+        <br>
+        you deserve all the <span class="highlight">peace & joy</span> today.
+        <span class="emoji-big">🌺</span>
+      </p>
+    </div>
+
+    <!-- interactive button – extra love -->
+    <button class="joy-button" id="joyButton">
+      <i>💕</i> feel special <i>💕</i>
+    </button>
+
+    <!-- floating footer note – unique touch -->
+    <div class="floating-note">
+      <span>✨ made just for you ✨</span>
+      <span class="heartbeat">❤️</span>
+      <span>#youaresoimportantformedon'tleaveme#</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---- ONE FILE, ALL MAGIC ----
+      // personalize the name here (change "bestie" to her name!)
+      const friendNameElement = document.getElementById('friendName');
+      if (friendNameElement) {
+        // you can replace 'bestie' with her actual name 💕
+        friendNameElement.textContent = 'Maya';  // <-- CHANGE THIS TO HER NAME
+      }
+
+      // extra sparkle: dynamic greeting based on time (just for fun)
+      const subGreeting = document.querySelector('.sub-greeting');
+      if (subGreeting) {
+        const hour = new Date().getHours();
+        let timeEmoji = '🌞';
+        if (hour < 12) timeEmoji = '🌤️';
+        else if (hour < 17) timeEmoji = '☀️';
+        else timeEmoji = '🌙';
+        // keep the original text but add a little time vibe
+        subGreeting.innerHTML = `${timeEmoji}  you are so important  ${timeEmoji}`;
+      }
+
+      // interactive button: makes her feel extra special with animation & message
+      const joyBtn = document.getElementById('joyButton');
+      const card = document.getElementById('specialCard');
+      let clickCount = 0;
+
+      if (joyBtn) {
+        joyBtn.addEventListener('click', function(e) {
+          clickCount++;
+          // haptic feedback (vibes)
+          this.style.transform = 'scale(0.96)';
+          setTimeout(() => { this.style.transform = ''; }, 120);
+
+          // floating sparkle effect
+          const sparkle = document.createElement('div');
+          sparkle.textContent = '✨';
+          sparkle.style.position = 'fixed';
+          sparkle.style.fontSize = (24 + Math.random() * 28) + 'px';
+          sparkle.style.left = (e.clientX - 20) + 'px';
+          sparkle.style.top = (e.clientY - 20) + 'px';
+          sparkle.style.pointerEvents = 'none';
+          sparkle.style.zIndex = '9999';
+          sparkle.style.transition = 'all 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
+          sparkle.style.opacity = '1';
+          document.body.appendChild(sparkle);
+
+          // animate sparkle
+          requestAnimationFrame(() => {
+            sparkle.style.transform = `translate(${(Math.random() - 0.5) * 150}px, ${-120 - Math.random() * 100}px) scale(1.8)`;
+            sparkle.style.opacity = '0';
+          });
+
+          setTimeout(() => {
+            sparkle.remove();
+          }, 1000);
+
+          // change card background subtly with each click – unique feeling
+          const colors = [
+            'linear-gradient(145deg, #fad0e6 0%, #f8d5e9 100%)',
+            'linear-gradient(145deg, #fccfdf 0%, #fad6e8 100%)',
+            'linear-gradient(145deg, #fbe3ed 0%, #fad0e0 100%)',
+            'linear-gradient(145deg, #fcd7e8 0%, #fccfdf 100%)',
+            'linear-gradient(145deg, #fad6e4 0%, #fbcbdd 100%)',
+          ];
+          const currentBg = colors[clickCount % colors.length];
+          document.body.style.background = currentBg;
+
+          // change the off badge text playfully
+          const offBadge = document.querySelector('.day-off-badge');
+          if (offBadge) {
+            const offTexts = ['OFF', '🌸 REST', '💖 YOU', '🌟 SHINE', '✨ JOY'];
+            offBadge.textContent = offTexts[clickCount % offTexts.length];
+          }
+
+          // update importance message with extra love
+          const msgP = document.querySelector('.importance-message p');
+          if (msgP && clickCount % 3 === 0) {
+            const extraMessages = [
+              'you are <span class="highlight">so loved</span> and appreciated. 🌷',
+              'today is YOUR canvas — paint it with <span class="highlight">happiness</span>. 🎨',
+              'the world needs your <span class="highlight">magic</span>. never forget that. ✨'
+            ];
+            const idx = (clickCount / 3) % extraMessages.length;
+            // we keep the base structure but change the inner part
+            // we'll replace the content after the first emoji
+            const baseStart = '🌸 just a little reminder that the world is ';
+            const baseEnd = ' you deserve all the <span class="highlight">peace & joy</span> today. 🌺';
+            // but we want to keep the middle dynamic
+            const newMiddle = extraMessages[idx % extraMessages.length];
+            msgP.innerHTML = `🌸 just a little reminder that the world is ${newMiddle} <br><span style="font-size:1.6rem; display:inline-block; margin:8px 0;">💖</span><br> you deserve all the <span class="highlight">peace & joy</span> today. 🌺`;
+          }
+        });
+      }
+
+      // extra: subtle entrance animation
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.94) translateY(20px)';
+      card.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1) translateY(0)';
+      }, 150);
+
+      // random sparkle trail (on load)
+      setTimeout(() => {
+        for (let i = 0; i < 6; i++) {
+          const star = document.createElement('span');
+          star.textContent = '✦';
+          star.style.position = 'fixed';
+          star.style.fontSize = (12 + Math.random() * 16) + 'px';
+          star.style.color = '#f7a1c4';
+          star.style.left = Math.random() * 90 + '%';
+          star.style.top = Math.random() * 90 + '%';
+          star.style.pointerEvents = 'none';
+          star.style.opacity = '0.3';
+          star.style.zIndex = '1';
+          star.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+          document.body.appendChild(star);
+          setTimeout(() => { star.remove(); }, 3000);
+        }
+      }, 400);
+
+      // extra: change the floating note name on click (double click card)
+      card.addEventListener('dblclick', function() {
+        const noteSpan = document.querySelector('.floating-note span:first-child');
+        if (noteSpan) {
+          const names = ['💖 for you', '✨ only you', '🌸 special one', '🌟 my friend'];
+          const current = noteSpan.textContent;
+          let newName = names[Math.floor(Math.random() * names.length)];
+          while (newName === current) {
+            newName = names[Math.floor(Math.random() * names.length)];
+          }
+          noteSpan.textContent = newName;
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
